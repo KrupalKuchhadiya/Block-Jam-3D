@@ -8,7 +8,6 @@ public class PlayerScript : MonoBehaviour
    public static PlayerScript instance;
    public bool flag;
    public Animator PlayerAnimation;
-   IEnumerator Coroutine,Coroutine1;
 
     public void Awake()
     {
@@ -29,6 +28,7 @@ public class PlayerScript : MonoBehaviour
             this.gameObject.transform.parent = GameManager.Instance.EmptyObject[GameManager.Instance.Count].transform;
             GameManager.Instance.Player.Add(this.gameObject);
             StartCoroutine(GoToHappy(2.5f));
+            
         }
        
         GameManager.Instance.Count++;
@@ -41,9 +41,5 @@ public class PlayerScript : MonoBehaviour
         PlayerAnimation.SetBool("walk", false);
         PlayerAnimation.SetBool("happy", true);
     }
-    public IEnumerator StopAfterClick(float Delay2)
-    {
-        yield return new WaitForSeconds(Delay2);
-        
-    }
+ 
 }
