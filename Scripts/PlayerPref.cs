@@ -8,6 +8,11 @@ public class PlayerPref : MonoBehaviour
 {
     [SerializeField]
     Button[] AllButton;
+    public static PlayerPref pref;
+    private void Awake()
+    {
+        pref = this;
+    }
 
     private void Start()
     {
@@ -22,10 +27,10 @@ public class PlayerPref : MonoBehaviour
     public void SetAllLevel(int ClickedButton)
     {
         int Value = PlayerPrefs.GetInt("Level", 0);
-        if(ClickedButton == Value)
-        { 
-        Value++;
-        PlayerPrefs.SetInt("Level", Value);
+        if (ClickedButton == Value)
+        {
+            //Value++;
+            PlayerPrefs.SetInt("Level", Value);
         }
         RefreshData();
     }
@@ -39,4 +44,6 @@ public class PlayerPref : MonoBehaviour
             AllButton[i].gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
+
+   
 }

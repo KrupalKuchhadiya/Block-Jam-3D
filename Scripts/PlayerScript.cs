@@ -17,7 +17,6 @@ public class PlayerScript : MonoBehaviour
     public void OnMouseUp()
     {
         GameManager.Instance.FinalWinChecking(this.gameObject);
-        Debug.Log(this.gameObject.name);
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
         flag = true;
@@ -41,5 +40,6 @@ public class PlayerScript : MonoBehaviour
         PlayerAnimation.SetBool("walk", false);
         PlayerAnimation.SetBool("happy", true);
     }
- 
+
+   
 }
